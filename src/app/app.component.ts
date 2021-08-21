@@ -8,12 +8,12 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'bytebank';
 
-  transferencia: any;
+  transferencias: any[] = [];
 
   transferir($event): void {
     console.log($event);
-    this.transferencia = {};
-    this.transferencia.valor = $event.valor;
-    this.transferencia.destino = $event.destino;
+    const transferencia = { ...$event };
+    transferencia.data = new Date();
+    this.transferencias.push(transferencia);
   }
 }
